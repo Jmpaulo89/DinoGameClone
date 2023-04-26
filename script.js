@@ -12,7 +12,8 @@ const startScreenElem = document.querySelector('[data-start-screen]')
 
 setPixelToWorldScale()
 window.addEventListener("resize", setPixelToWorldScale)
-window.addEventListener('touchstart', handleStart, {once:true})
+window.addEventListener('keydown', handleStart, {once:true})
+window.addEventListener('touchmove', handleStart, {once:true})
 
 
 
@@ -73,9 +74,10 @@ function handleStart(){
 function handleLose(){
     setDinoLose()
     setTimeout(()=>{
-        document.addEventListener('click', handleStart, {once: true})
+        document.addEventListener('keydown', handleStart, {once: true})
+        document.addEventListener('touchmove', handleStart, {once: true})
         startScreenElem.classList.remove('hide')
-    },100)
+    },200)
 }
 
 function setPixelToWorldScale(){
